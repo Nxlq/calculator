@@ -1,8 +1,10 @@
 body {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  justify-content: center;
   align-items: center;
+  background-color: lightgoldenrodyellow;
+  padding: 0px;
 }
 
 .calculator-container {
@@ -61,4 +63,40 @@ button {
 
 .fake-btn.right {
   background-color: rgb(255, 196, 0);
+}
+
+.header {
+  display: flex;
+  height: 25vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: rgb(240, 130, 130);
+  gap: 80px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0px;
+}
+
+.diamond {
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-bottom: 25px solid;
+  position: relative;
+  top: -15px;
+}
+
+.diamond::after {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 25px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top: 25px solid;
 }
