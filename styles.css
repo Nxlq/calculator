@@ -18,12 +18,27 @@ body {
 }
 
 .output-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
   background-color: rgb(213, 237, 240);
   height: 85px;
-  width: 316px;
+  min-width: 316px;
   border-top: solid rgb(146, 6, 18) 6px;
   border-right: solid rgb(146, 6, 18) 6px;
   border-radius: 10px;
+  font-family: cursive;
+}
+
+.past-input {
+  height: 23px;
+  font-size: 20px;
+}
+
+.current-input {
+  height: 68px;
+  font-size: 40px;
 }
 
 .buttons-container {
@@ -63,6 +78,7 @@ button {
 
 .fake-btn.right {
   background-color: rgb(255, 196, 0);
+  border: solid 1px rgb(209, 161, 3);
 }
 
 .header {
