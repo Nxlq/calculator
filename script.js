@@ -40,6 +40,7 @@ function calculate(a, b, operator) {
 }
 
 function appendOperand(numberStr) {
+  if (numberStr === "." && currentOperand.includes(".")) return;
   currentOperand += numberStr;
 }
 
