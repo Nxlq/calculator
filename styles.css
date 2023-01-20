@@ -83,6 +83,7 @@ button {
 .small-btn.right {
   background-color: rgb(255, 196, 0);
   border: solid 1px rgb(209, 161, 3);
+  color: rgb(146, 6, 18);
 }
 
 .header {

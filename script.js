@@ -4,6 +4,9 @@ const numberBtns = document.querySelectorAll("[data-number]");
 const operatorBtns = document.querySelectorAll("[data-operator]");
 const clearBtn = document.querySelector("[data-clear]");
 const equalsBtn = document.querySelector("[data-equals]");
+const squareBtn = document.querySelector("[data-square]");
+const squareRootbtn = document.querySelector("[data-squareroot]");
+const delBtn = document.querySelector("[data-delete]");
 const currentOperandDisplay = document.querySelector(".current-input");
 const pastOperandDisplay = document.querySelector(".past-input");
 
@@ -25,6 +28,15 @@ function multiply(a, b) {
 
 function divide(a, b) {
   return a / b;
+}
+
+function square(a) {
+  const numberA = +a;
+  const squared = numberA ** 2;
+  currentOperand = squared;
+  if (currentOperand !== "" && pastOperand !== "") return;
+  swapOperand();
+  return squared;
 }
 
 function calculate(a, b) {
@@ -119,5 +131,10 @@ equalsBtn.addEventListener("click", () => {
 
 clearBtn.addEventListener("click", () => {
   allClear();
+  updateDisplay();
+});
+
+squareBtn.addEventListener("click", () => {
+  square(currentOperand);
   updateDisplay();
 });
