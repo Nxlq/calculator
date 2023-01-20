@@ -80,6 +80,7 @@ function updateDisplay() {
 }
 
 function getOperator(btnsText) {
+  if (currentOperand === "" && pastOperand === "") return;
   operator = btnsText;
   swapOperand();
   console.log({ currentOperand }, { pastOperand }, { operator });
