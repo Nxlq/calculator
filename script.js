@@ -31,6 +31,7 @@ function divide(a, b) {
 }
 
 function square(a) {
+  if (currentOperand === "") return;
   const numberA = +a;
   const squared = numberA ** 2;
   currentOperand = squared;
