@@ -69,6 +69,19 @@ function getOperator(btnsText) {
   console.log({ currentOperand }, { pastOperand }, { operator });
 }
 
+function swapOperand() {
+  if (currentOperand !== "") {
+    pastOperand = currentOperand;
+    currentOperand = "";
+  }
+}
+
+function allClear() {
+  currentOperand = "";
+  pastOperand = "";
+  operator = "";
+}
+
 numberBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     appendOperand(btn.innerText);
@@ -101,9 +114,7 @@ equalsBtn.addEventListener("click", () => {
   }
 });
 
-function swapOperand() {
-  if (currentOperand !== "") {
-    pastOperand = currentOperand;
-    currentOperand = "";
-  }
-}
+clearBtn.addEventListener("click", () => {
+  allClear();
+  updateDisplay();
+});
