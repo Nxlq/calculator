@@ -49,6 +49,9 @@ function calculate(a, b) {
     default:
       return;
   }
+  if (result.toString().includes(".")) {
+    result = result.toFixed(2);
+  }
   currentOperand = result;
   return result;
 }
