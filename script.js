@@ -40,6 +40,16 @@ function square(a) {
   return squared;
 }
 
+function getSquareRoot(a) {
+  if (currentOperand === "") return;
+  const numberA = +a;
+  const sqrRoot = Math.sqrt(numberA);
+  currentOperand = sqrRoot;
+  if (currentOperand !== "" && pastOperand !== "") return;
+  swapOperand();
+  return sqrRoot;
+}
+
 function calculate(a, b) {
   const numberA = +a;
   const numberB = +b;
@@ -75,6 +85,9 @@ function appendOperand(btnsText) {
 }
 
 function updateDisplay() {
+  if (pastOperand.toString().includes(".")) {
+    pastOperand = `${(+pastOperand).toFixed(2)}`;
+  }
   currentOperandDisplay.innerText = currentOperand;
   pastOperandDisplay.innerText = `${pastOperand} ${operator} `;
 }
@@ -138,5 +151,10 @@ clearBtn.addEventListener("click", () => {
 
 squareBtn.addEventListener("click", () => {
   square(currentOperand);
+  updateDisplay();
+});
+
+squareRootbtn.addEventListener("click", () => {
+  getSquareRoot(currentOperand);
   updateDisplay();
 });
