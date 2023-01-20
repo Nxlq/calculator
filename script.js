@@ -112,6 +112,13 @@ function allClear() {
   operator = "";
 }
 
+function popOperand() {
+  const split = currentOperand.split("");
+  split.pop();
+  const popped = split.join("");
+  currentOperand = popped;
+}
+
 numberBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     appendOperand(btn.innerText);
@@ -156,5 +163,10 @@ squareBtn.addEventListener("click", () => {
 
 squareRootbtn.addEventListener("click", () => {
   getSquareRoot(currentOperand);
+  updateDisplay();
+});
+
+delBtn.addEventListener("click", () => {
+  popOperand();
   updateDisplay();
 });
