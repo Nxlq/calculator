@@ -9,7 +9,7 @@ const pastOperandDisplay = document.querySelector(".past-input");
 
 let currentOperand = "";
 let pastOperand = "";
-let number = "";
+let operator = "";
 
 console.log({ numberBtns });
 console.log({ operatorBtns });
@@ -33,24 +33,56 @@ function divide(a, b) {
   return a / b;
 }
 
-function calculate(a, b, operator) {
-  const result = operator(a, b);
-  console.log(result);
+function calculate(a, b, operation) {
+  const numberA = +a;
+  const numberB = +b;
+  const result = operation(numberA, numberB);
+  console.log(pastOperand);
+  pastOperand = result;
+  console.log(pastOperand);
   return result;
 }
 
-function appendOperand(numberStr) {
-  if (numberStr === "." && currentOperand.includes(".")) return;
-  currentOperand += numberStr;
+function appendOperand(btnsText) {
+  if (btnsText === "." && currentOperand.includes(".")) return;
+  currentOperand += btnsText;
 }
 
-function updateDisplay(currentOperand) {
+function updateDisplay() {
   currentOperandDisplay.innerText = currentOperand;
+  pastOperandDisplay.innerText = `${pastOperand} ${operator} `;
+}
+
+function getOperator(btnsText) {
+  operator = btnsText;
+  pastOperand = currentOperand;
+  currentOperand = "";
+  if (operator === "+") {
+    return add;
+  } else if (operator === "−") {
+    return subtract;
+  } else if (operator === "×") {
+    return multiply;
+  } else if (operator === "÷") {
+    return divide;
+  }
 }
 
 numberBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     appendOperand(btn.innerText);
-    updateDisplay(currentOperand);
+    updateDisplay();
+  })
+);
+
+operatorBtns.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    if (pastOperand !== "" && currentOperand !== "") {
+      calculate(pastOperand, currentOperand, getOperator(btn.innerText));
+      updateDisplay();
+      return;
+    }
+    getOperator(btn.innerText);
+    updateDisplay();
   })
 );
