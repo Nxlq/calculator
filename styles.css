@@ -60,23 +60,27 @@ button {
   font-weight: 500;
 }
 
-.fake-buttons-container {
+.small-buttons-container {
   display: flex;
   justify-content: space-between;
   width: 320px;
 }
 
-.fake-btn {
+.small-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 25px;
   width: 55px;
   border-radius: 20px;
+  font-size: 16px;
 }
 
-.fake-btn.left {
+.small-btn.left {
   background-color: white;
 }
 
-.fake-btn.right {
+.small-btn.right {
   background-color: rgb(255, 196, 0);
   border: solid 1px rgb(209, 161, 3);
 }
